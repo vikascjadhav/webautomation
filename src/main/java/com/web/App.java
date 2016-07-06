@@ -28,12 +28,14 @@ public class App
         Thread.sleep(4000);
         element.click();
 
-        element = driver.findElement(By.id("q"));
-        element.sendKeys("Sellenium");
+        driver.get("https://www.google.co.in");
+        element = driver.findElement(By.name("q"));
+        element.sendKeys("Selenium");
+        element.submit();
         
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver d) {
-                return d.getTitle().toLowerCase().startsWith("Sellenium");
+                return d.getTitle().toLowerCase().startsWith("Selenium");
             }
         });
 
